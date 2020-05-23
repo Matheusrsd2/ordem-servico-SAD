@@ -1,0 +1,40 @@
+<body>
+    {{>_fonts}}
+    {{>_navbar}}
+    <br><br>
+    <div id="busca">
+            <form action="" method="post">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="busca" placeholder="Pesquisar Funcionario">
+                </div>
+                <button name="find" type="submit" class="btn btn-success">Buscar
+                    <span class="glyphicon glyphicon-search">
+                </button>
+            </form>
+    </div><br>
+        <pre><b>Funcionarios = </b></pre>
+        <table id="t1"class="table table-dark table-hover">
+        <thead> 
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Data de Admissão</th>
+                <th>Data de Demissão</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each funcionario}}
+            <tr>
+                <td>{{nome}}</td>
+                <td>{{endereco}}</td>
+                <td>{{cpf}}</td>
+                <td>{{dataNasc}}</td>
+                <td>{{dataAdmissao}}</td>
+                <td>{{dataDemissao}}</td>
+            {{/each}}
+            </tr>    
+        </tbody>
+    </table>
+</body>

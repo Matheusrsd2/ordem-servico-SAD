@@ -1,0 +1,29 @@
+div#adicionar{
+    border-width: 1px;
+     border-style: dashed;
+     border-color: #778899;
+     position: absolute;
+     top: 58px;
+     padding: 10px;
+     left: 20px;
+ }
+ div#visualizar{
+     border-width: 1px;
+     border-style: dashed;
+     border-color: #778899;
+     position: absolute;
+     top: 170px;
+     padding: 10px;
+     left: 20px;
+ }
+ div#ordem{
+     position: absolute;
+     top:350px;
+     left: 20px;
+ }
+
+ button#bt{
+     position: absolute;
+     top:299px;
+     left: 20px;
+ }

@@ -1,0 +1,52 @@
+<body>
+    {{>_fonts}}
+    {{>_navbar}}
+    <br><br>
+    <div id="busca">
+            <form action="" method="post">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="busca" placeholder="Pesquisar Cliente">
+                </div>
+                <button name="find" type="submit" class="btn btn-success">Buscar
+                    <span class="glyphicon glyphicon-search">
+                </button>
+            </form>
+        
+    </div><br>
+        <pre><b>TOTAL DE CLIENTES = </b></pre>
+        <table id="t1"class="table table-dark table-hover">
+        <thead> 
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Data de Nascimento</th>
+                <th>Status</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each cliente}}
+            <tr>
+                <td>{{dataValues.id}}</td>
+                <td>{{dataValues.nome}}</td>
+                <td>{{dataValues.endereco}}</td>
+                <td>{{dataValues.cidade}}</td>
+                <td>{{dataValues.estado}}</td>
+                <td>{{dataValues.dataNasc}}</td>
+                <td>{{dataValues.status}}</td> 
+                <td>
+                    <a href="javascript: if(confirm('Tem certeza que deseja Excluir?')) 
+                            location.href='/cliente/deletar/{{dataValues.id}}'">                           
+                            <button class="btn btn-danger"><i class="tiny material-icons">close</i>Excluir</button>
+                    </a> 
+                    <a href="edit_cliente.php?id=" style="text-decoration:none"><button class="btn btn-info"><font color="white">Alterar</font>
+                    </a></button>
+                </td>
+            {{/each}}
+            </tr>    
+        </tbody>
+    </table>
+</body>

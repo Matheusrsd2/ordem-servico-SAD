@@ -1,0 +1,51 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/dashboard">Service Order</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/os/dashboard">Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cadastros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/produto">Cadastrar Produto</a>
+            <a class="dropdown-item" href="/cliente">Cadastrar Clientes</a>
+            <a class="dropdown-item" href="/funcionario">Cadastrar Funcionários</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/os">Cadastrar Ordem de Serviço</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Visualização
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/produto/listar">Visualizar Produtos</a>
+            <a class="dropdown-item" href="/cliente/listar">Visualizar Clientes</a>
+            <a class="dropdown-item" href="/funcionario/listar">Visualizar Funcionários</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/dashboard">Ordem de Serviço | Principal</a>
+          </div>
+        </li>
+      </ul>
+        <form style="position:absolute; top:5px; left: 500px" action="/buscar"class="form-inline my-2 my-lg-0">
+          <input name="busca" class="form-control mr-sm-2" placeholder="Buscar O.S por Cliente">
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Pesquisar</button>
+        </form>
+        <button class="btn btn-danger">
+          <a href="logout.php"><font color="white">Sair</font></a>
+        </button>
+    </div>
+  </nav>
+
+  
+

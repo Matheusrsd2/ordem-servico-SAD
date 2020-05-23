@@ -1,0 +1,46 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/css/background.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <br><br>
+    <div id="busca">
+        <form action="" method="post">
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="busca" placeholder="Pesquisar Produto">
+            </div>
+            <button name="find" type="submit" class="btn btn-success">Buscar
+                <span class="glyphicon glyphicon-search">
+            </button>
+        </form>
+        
+    </div><br>
+    <table id="t1"class="table table-dark table-hover">
+        <thead> 
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Referência</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript: if(confirm('Tem certeza que deseja deletar esse Produto?')) 
+                        location.href='delete_produto.php?id=<?php echo $dados['id'];?>'" 
+                        style="text-decoration:none"><button class="btn btn-danger"><font color="white">Deletar</font>
+                    </a></button>
+                    <a href="edit_produto.php?id=<?php echo $dados['id'];?>" style="text-decoration:none"><button class="btn btn-info"><font color="white">Alterar</font>
+                    </a></button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>

@@ -1,0 +1,28 @@
+<body>
+    {{_fonts}}
+    {{>_navbar}}
+    {{>_form-cadastros}}
+    <div id="card" class="card col-sm-8 p-3 mb-2 bg-light text-dark">
+        <div class=card-body>
+            <h5><b>Cadastrar Novo Produto</b></h5>
+            <form action="/produto/novo" method="post">
+                <label>Nome</label>
+                    <input type="text" name="nome" class="form-control">
+                <label>Fabricante</label>
+                    <input type="text" name="fabricante" class="form-control">
+                <label>Modelo</label>
+                    <input type="text" name="modelo" class="form-control">
+                <br><button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+        {{#each erros}}
+        <div class="alert alert-danger col-sm-6"> {{texto}}</div>
+    {{else}}
+
+    {{/each}}
+</body>
+</html>
+
+
+

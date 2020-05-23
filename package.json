@@ -1,0 +1,37 @@
+{
+  "name": "projeto-os-bsi",
+  "version": "1.0.0",
+  "description": "Projeto com Node.js e MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matheusrsd2/projeto-os-bsi.git"
+  },
+  "author": "Matheus Reis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matheusrsd2/projeto-os-bsi/issues"
+  },
+  "homepage": "https://github.com/Matheusrsd2/projeto-os-bsi#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.14",
+    "mysql2": "^2.1.0",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.10",
+    "sequelize-cli": "^5.5.1",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "handlebars": "^4.5.0",
+    "nodemon": "^2.0.4"
+  }
+}

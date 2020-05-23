@@ -1,0 +1,48 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Arsenal&display=swap" rel="stylesheet">
+</head>
+<body>
+    {{>_navbar}}
+    {{>_form-cadastros}}
+    <div id="card" class="card col-sm-8 p-3 mb-2 bg-light text-dark">
+        <div class=card-body>
+            <h2>Informe os dados do Cliente</h2>
+            <form action="cliente/cadastrar" method="post">
+                <div class="col-sm-8">
+                    <label>Nome Completo</label>
+                    <input type="text" class="form-control" name="nome">
+                </div>
+                <div class="col-sm-8">
+                    <label>CPF</label>
+                    <input type="text" class="form-control" name="cpf">
+                </div>
+                <div class="col-sm-8">
+                    <label> Endereço</label>
+                    <input type="text" class="form-control" name="endereco">
+                </div><br>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label>Cidade</label>
+                        <input type="text" class="form-control" name="cidade">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Estado</label>
+                        <select class="form-control" name="estado">
+                        <option> </option><option>AC</option><option>AP</option><option>AM</option><option>AL</option><option>BA</option><option>CE</option>
+                        <option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                        <option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option>
+                        <option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                        <option>SP</option><option>SE</option><option>TO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                <label> Data de Nascimento</label>
+                <input type="date" class="form-control" name="dataNasc">
+                </div>
+                <br><input type="submit" class="btn btn-primary" value="Cadastrar">
+            </form>
+        </div>
+    </div>
+</body>
