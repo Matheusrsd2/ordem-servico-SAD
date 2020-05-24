@@ -1,0 +1,87 @@
+
+<html>
+<html>
+  <head>
+      <style>
+        div#detalhes{
+          position: absolute;
+          top: 100px;
+          left: 180px;  
+        }
+      </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+<body>
+{{>_navbar}}
+{{#os}}
+<form action="/os/update" method="post">
+  <input type="hidden" name="id" value="{{dataValues.id}}">
+  <div id="detalhes" class="card col-sm-8 p-3 mb-2 bg-light text-dark">
+    <center><h3>Ordem de Serviço nº {{dataValues.id}}</h3></center>
+    <div class="row">
+      <div class="col-md-6 col-xs-4">
+        <div class="form-group">
+          <label>Cliente</label>
+          <input type="text" class="form-control" value="{{dataValues.cliente}}" disabled>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-4">
+        <div class="form-group">
+          <label>Observação</label>
+          <input type="text" class="form-control" disabled>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+          <label>Produto</label>
+          <input type="text" class="form-control" value="{{dataValues.produto}}"disabled>
+        </div>
+      </div>
+      <div>
+        <div class="form-group">
+          <label>Data e Hora</label><br>
+          {{#formatDate dataValues.created_at}}{{/formatDate}}
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-8">
+        <div class="form-group">
+          <label>Status</label>
+          <input type="text" class="form-control" value="{{dataValues.status}}" disabled>
+        </div>
+      </div>
+    </div>
+
+    <!--next-->
+    <div class="row">
+
+    </div>
+      <!--next-->
+      <div class="row">
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+            <label>Valor disponibilizado para despesas R$</label>
+            <input type="number" value="{{dataValues.valor_despesa_max}}" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+            <center>
+              <small>Para realizar a baixa da Ordem de Serviço,
+              Informe o Valor Total gasto em despesas</small>
+              <input type="number" name="despesaFinal" required>
+            </center>
+          </div>
+        </div>
+      </div>
+      <center>
+          <button class="btn btn-info">Concluir</button>
+      </center>
+      
+    </div>
+  </div>
+</form>
+{{/os}}
+</body>
+</html>

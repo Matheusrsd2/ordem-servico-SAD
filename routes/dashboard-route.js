@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req,res) => {
     OS.findAll().then((os) => {
-        res.render('dashboard', {os:os} )
+        res.render('dashboard', {os: os})
     })
 })
 

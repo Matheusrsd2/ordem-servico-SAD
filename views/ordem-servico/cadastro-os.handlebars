@@ -12,7 +12,7 @@
     {{>_form-cadastros}}
     <div id="card" class="card col-sm-8 p-3 mb-2 bg-light text-dark">
         <div class=card-body>
-            <h2>Criar Ordem de Serviço</h2>
+            <center><h2>Criar Ordem de Serviço</h2></center><br>
             <form action="os/cadastrar" method="post">
                 <div class="col-sm-8">
                     <label>Cliente (Informe o Nome Completo do Cliente)</label><br>
@@ -26,8 +26,14 @@
                 <div class="col-sm-8">
                     <label>Observação</label>
                     <input type="text" class="form-control" name="obs">
+                </div>
+                <div class="col-sm-4">
+                    <label>Informe o valor máximo para despesas</label>
+                    <input type="number" placeholder="R$" class="form-control" name="despesaMax">
                 </div><br>
-                <input type="submit" class="btn btn-primary" value="Salvar">
+                <center>
+                    <input type="submit" class="btn btn-primary" value="Criar">
+                </center>
             </form>
         </div>
     </div>

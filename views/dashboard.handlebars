@@ -33,7 +33,7 @@
             <font color="white">Criar nova Ordem de Serviço</font></a> <i class="tiny material-icons">assignment</i>
         </button>
     <div id="ordem" class="card col-sm-11 p-3 mb-2 bg-light text-dark">      
-        <table class="table table-hover" style="background-color:#D3D3D3;">
+        <table class="table table-dark table-hover">
             <thead class="thead thead-secondary"> 
                 <tr>
                     <th>Código</th>
@@ -47,16 +47,17 @@
             </thead>
             <tbody>
                 {{#each os}}
+                {{#dataValues}}
                 <tr>
-                    <td>{{dataValues.id}}</td>
-                    <td>{{dataValues.cliente}}</td>
-                    <td>{{dataValues.produto}}</td>
-                    <td>{{dataValues.obs}}</td>
-                    <td>{{dataValues.status}}</td> 
-                    <td>Dia: {{#formatDate dataValues.createdAt}}{{/formatDate}}</td>
+                    <td>{{id}}</td>
+                    <td>{{cliente}}</td>
+                    <td>{{produto}}</td>
+                    <td>{{obs}}</td>
+                    <td>{{status}}</td> 
+                    <td>Dia: {{#formatDate createdAt}}{{/formatDate}}</td>
                     <td>
                         <a href="javascript: if(confirm('Tem certeza que deseja Excluir?')) 
-                            location.href='/os/deletar/{{dataValues.id}}'">                           
+                            location.href='/os/deletar/{{id}}'">                           
                             <button class="btn btn-danger"><i class="medium material-icons" style="font-size: 1.2em">close</i>Excluir</button>
                         </a> 
                         <td>
@@ -64,12 +65,11 @@
                             location.href='/os/update/{{dataValues.id}}'">                           
                             <button class="btn btn-danger"><i class="medium material-icons" style="font-size: 1.2em">close</i>Concluído</button>
                         </a!-->            
-                        <form method="post" action="/os/update/{{dataValues.id}}">
-                            <input type="hidden" name="id" value="{{id}}">  
-                            <input type="hidden" name="status" value="{{status}}">                            
-                            <button class="btn btn-info"><font color="white"><i class="medium material-icons" style="font-size: 1.2em">check</i>Concluído</font></button>
-                        </form> 
+                        <a href="/os/detalhes/{{id}}">
+                            <button class="btn btn-info">Ver Detalhes</button>
+                        </a>
                     </td>
+                    {{/dataValues}}
                     {{/each}}
                 </tr>  
             </tbody>

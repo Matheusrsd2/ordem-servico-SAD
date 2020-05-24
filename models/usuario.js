@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../app');
+const sequelize = require('../utils/modelLoader');
 
 const Usuario = sequelize.define('usuario', {
     nome: {
@@ -17,7 +17,10 @@ const Usuario = sequelize.define('usuario', {
         type:Sequelize.INTEGER,
         defaultValue: 0,
     },
-  })
+  },
+  {
+    timestamps: false,
+})
 
   //Usuario.sync();
 

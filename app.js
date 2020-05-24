@@ -8,7 +8,7 @@ const app = express();
 const session = require('express-session');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('ordem_servico', 'root', '', {
+/*const sequelize = new Sequelize('ordem_servico', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
 });
@@ -19,7 +19,7 @@ sequelize.authenticate().then(function(){
     console.log('erro'+err)
 });
 
-module.exports = sequelize;
+module.exports = sequelize; */
 
 
 //Sessão
@@ -44,7 +44,7 @@ app.engine('handlebars', handlebars({
     defaultLayout: 'main', //Defina em sua view ou no meu caso no layout main.js
     helpers: {
         formatDate: (date) => {
-            return moment(date).format('DD/MM/YYYY HH:mm:ss')
+            return moment(date).format('DD/MM/YYYY - HH:mm:ss')
         }
     }
 }))
@@ -71,7 +71,7 @@ app.use('/os', osRoute);
 //app.use('/funcionario', funcRoute);
 
 //Definindo a porta via arquivo de configuração
-var port = process.env.port || 3001;
+var port = process.env.port || 3000;
 
 app.listen(port, () => {
     console.log('Server up and running!');

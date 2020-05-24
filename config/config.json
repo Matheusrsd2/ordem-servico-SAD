@@ -1,0 +1,10 @@
+{
+    "development": {
+        "dialect": "postgres",
+        "host": "salt.db.elephantsql.com",
+        "schema": "public",
+        "database": "colegima",
+        "username": "colegima",
+        "password": "R6T092RNEhoVgwUlyIxQ-sWjdYdSQhM_"
+    }
+}

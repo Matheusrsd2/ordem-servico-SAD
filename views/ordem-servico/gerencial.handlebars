@@ -20,6 +20,11 @@
             top:340px;
             left:20px;
         }
+        div#despesa{
+            position: absolute;
+            top:340px;
+            left:520px;
+        }
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -48,15 +53,15 @@
             </form>
         </div>
     </div>
-    <div class="card" id="status" style="width: 15rem; height:14rem">
+    <div class="card" id="status" style="width: 15rem; height:15rem">
         <div class="card-body">
              <form action="/os/gerencial">
                 <p>Ordens de Serviço ainda em andamento</p>
             </form>
-            <center><p class="card-text" style="font-size: 30px">{{osStatus}}</p>
+            <center><p class="card-text" style="font-size: 35px">{{osStatus}}</p>
                 <button class="btn btn-warning">
                     <a class="btn waves-effect waves-light red lighten-2" href="javascript: if(confirm('Tem certeza que deseja Concluir Todas as Ordens de Serviço?')) 
-                        location.href='os/concluir/all'">Concluir TODAS ?
+                        location.href='/os/concluir/all'">Concluir TODAS ?
                     </a>
                 </button>
             </center>
@@ -74,6 +79,27 @@
                 {{/each}}
                 </ul>
             </p>
+        </div>
+    </div>
+        <div class="card" id="despesa" style="width: 35rem; height:20rem">
+        <div class="card-body">
+             <form action="/os/gerencial">
+                <center><p><b>Valor Agregado de Despesas</b></p></center>
+            </form>
+            <p class="card-text" style="font-size: 50px">
+               {{#despesa}}
+                <ul>
+                    <li><h6>Valor Total Disponibilizado: R$ {{dataValues.soma1}}</h6></li>
+                    <li><h6>Valor Total gasto em despesas R$ {{dataValues.soma2}}</h6></li>
+                </ul>
+                {{/despesa}}
+            </p>
+            <center><p><b>Balanço:</b></p></center>
+            {{#resumoDespesa}}
+            <ul>
+                <li><h6>Saldo Final: R$ {{dataValues.saldo}}</h6></li>
+            </ul>
+            {{/resumoDespesa}}
         </div>
     </div>
 </body>

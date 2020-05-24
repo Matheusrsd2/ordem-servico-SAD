@@ -17,6 +17,7 @@ exports.post = async(req, res) => {
             cliente: req.body.cliente,
             produto: req.body.produto,
             obs: req.body.obs,
+            valor_despesa_max: req.body.despesaMax
         });
         res.redirect('/dashboard')
     } catch (error) {
@@ -34,10 +35,13 @@ exports.delete = (req, res) =>
 }
 
 exports.update = (req, res) => {
-    OS.update({
-        status: 'CONCLUÍDO' },
-        { where: { id: req.params.id }
-    }).then(function(){
-        res.redirect("/dashboard")
+    OS.findOne({ where: { id: req.body.id} })
+    .then(function(os){
+        os.valor_despesa_final = req.body.despesaFinal
+        os.status = 'CONCLUÍDO'
+        os.save()
+        .then(function(){
+            res.redirect("/dashboard")
+        })
     })
 }

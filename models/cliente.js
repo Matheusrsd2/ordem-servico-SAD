@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../app');
+const sequelize = require('../utils/modelLoader');
 
 const Cliente = sequelize.define('cliente', {
     nome: {
@@ -28,6 +28,6 @@ const Cliente = sequelize.define('cliente', {
     },
   })
 
-  Cliente.sync();
+ // Cliente.sync();
 
   module.exports = Cliente;
