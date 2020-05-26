@@ -18,9 +18,11 @@
   "homepage": "https://github.com/Matheusrsd2/projeto-os-bsi#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
     "moment": "^2.26.0",
     "mysql2": "^2.1.0",
     "pg": "^8.2.1",

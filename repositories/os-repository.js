@@ -1,5 +1,5 @@
 const OS = require('../models/ordem-servico.js');
-const sequelize = ('../app');
+//const sequelize = ('../app');
 
 exports.post = async(data) =>{
     const os = new OS(data);

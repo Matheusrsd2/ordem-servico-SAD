@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var moment = require('moment');
 var path = require('path');
 const app = express();
-//var mongoose = require('mongoose');
 const session = require('express-session');
 const Sequelize = require('sequelize');
 
@@ -57,18 +56,18 @@ var usuarioRoute = require("./routes/usuario-routes");
 var clienteRoute = require("./routes/cliente-routes");
 var dashboardRoute = require('./routes/dashboard-route');
 var osRoute = require('./routes/os-routes');
-//var produtoRoute = require('./routes/produto-route');
+var produtoRoute = require('./routes/produto-route');
 //var buscaRoute = require('./routes/busca-route');
-//var funcRoute = require('./routes/funcionario-routes');
+var funcRoute = require('./routes/funcionario-routes');
 
 //Vincular a aplicacao (app) com o motor de rotas
-//app.use('/produto', produtoRoute);
+app.use('/produto', produtoRoute);
 app.use('/usuario', usuarioRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/cliente', clienteRoute);
 app.use('/os', osRoute);
 //app.use('/buscar', buscaRoute);
-//app.use('/funcionario', funcRoute);
+app.use('/funcionario', funcRoute);
 
 //Definindo a porta via arquivo de configuração
 var port = process.env.port || 3000;

@@ -1,28 +1,31 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../utils/modelLoader');
-//const sequelize = require('../app');
 
-const Usuario = sequelize.define('usuario', {
+const Funcionario = sequelize.define('funcionario', {
     nome: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    email: {
+    cpf: {
       type: Sequelize.STRING
       // allowNull defaults to true
     },
-    senha:{
+    endereco:{
         type:Sequelize.STRING
     },
     status:{
-        type:Sequelize.INTEGER,
-        defaultValue: 0,
+        type:Sequelize.STRING,
+        defaultValue: 'ATIVO',
     },
+    dataNasc:{
+        type:Sequelize.DATE
+    },
+ 
   },
   {
     timestamps: false,
-})
+  })
 
-  //Usuario.sync();
+ //Funcionario.sync();
 
-  module.exports = Usuario;
+  module.exports = Funcionario;

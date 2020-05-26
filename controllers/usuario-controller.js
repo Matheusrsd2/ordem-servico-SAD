@@ -1,9 +1,15 @@
 const Usuario = require('../models/usuario');
 const bcrypt = require('bcryptjs');
+const repository = require('../repositories/usuario-repository');
+//const sequelize = require('../utils/modelLoader');
+//const sequelize = require('../app')
 
 exports.post = function (req,res) {
     var erros = [];
-    Usuario.findOne({email: req.body.email}).then((usuario) =>{
+    Usuario.findOne({
+        where: {
+            email: req.body.email}
+        }).then((usuario) =>{
         if (usuario){
             erros.push({texto: "Email ja cadastrado, tente novamente"})
         }
@@ -33,3 +39,23 @@ exports.post = function (req,res) {
         }
     })
 };
+
+exports.login = async (req, res) => {
+    try {
+      const data = await repository.login(req.body);
+  
+      if (data) {
+        return res
+          .status(201)
+          .json({
+            message: "Login realizado com sucesso!",
+            user: data.usuario,
+            token: data.token,
+          });
+      }
+  
+      return res.status(401).json({ message: "Email e/ou senha inválidos!" });
+    } catch (error) {
+      res.status(500).json({ message: "Erro ao realizar login!", error });
+    }
+  };

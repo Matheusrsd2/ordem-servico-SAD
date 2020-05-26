@@ -13,5 +13,7 @@ router.get('/', (req, res) => {
     res.render('usuario/login')
 })
 
+router.post('/login', usuarioController.login)
+
 
 module.exports = router;
