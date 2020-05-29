@@ -7,7 +7,7 @@ const app = express();
 const session = require('express-session');
 const Sequelize = require('sequelize');
 
-/*const sequelize = new Sequelize('ordem_servico', 'root', '', {
+const sequelize = new Sequelize('ordem_servico', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
 });
@@ -18,7 +18,7 @@ sequelize.authenticate().then(function(){
     console.log('erro'+err)
 });
 
-module.exports = sequelize; */
+module.exports = sequelize; 
 
 
 //Sessão
