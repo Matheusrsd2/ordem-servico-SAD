@@ -8,6 +8,7 @@ exports.post = async(req, res) => {
             endereco: req.body.endereco,
             cpf: req.body.cpf,
             dataNasc: req.body.dataNasc,
+            dataAdmissao: req.body.dataAdmissao,
         });
         res.redirect('/funcionario/listar');
     } catch (error) {

@@ -1,6 +1,6 @@
-const Funcionario = require('../models/funcionario.js');
+const Cliente = require('../models/cliente.js');
 
 exports.post = async(data) =>{
-    const f = new Funcionario(data);
-    await f.save();
+    const c = new Cliente(data);
+    await c.save();
 }

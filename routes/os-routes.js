@@ -41,7 +41,7 @@ router.get('/dashboard', (req,res) => {
                 })
                 .then(function (prod) {
                     const sql= sequelize.query
-                    ('SELECT SUM(valor_despesa_max) soma1, SUM(valor_despesa_final) soma2 FROM ordem_servicos', {
+                    ('SELECT SUM(valor_despesa_max) soma1, SUM(valor_despesa_final)soma2 FROM ordem_servicos', {
                         model: OS,
                         mapToModel: false // pass true here if you have any mapped fields
                     }).then(function(despesa){

@@ -20,12 +20,18 @@ const Funcionario = sequelize.define('funcionario', {
     dataNasc:{
         type:Sequelize.DATE
     },
+    dataAdmissao:{
+        type:Sequelize.DATE
+    },
+    dataDemissao:{
+        type:Sequelize.DATE
+    },
  
   },
   {
     timestamps: false,
   })
 
- //Funcionario.sync();
+ Funcionario.sync();
 
   module.exports = Funcionario;
