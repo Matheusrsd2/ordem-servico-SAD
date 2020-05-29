@@ -33,6 +33,6 @@ const Funcionario = sequelize.define('funcionario', {
     timestamps: false,
   })
 
- Funcionario.sync();
+ //Funcionario.sync();
 
   module.exports = Funcionario;

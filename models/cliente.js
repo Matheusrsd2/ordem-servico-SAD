@@ -29,6 +29,6 @@ const Cliente = sequelize.define('cliente', {
     },
   })
 
- // Cliente.sync();
+ //Cliente.sync();
 
   module.exports = Cliente;

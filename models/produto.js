@@ -22,6 +22,6 @@ const Produto = sequelize.define('produto',
     timestamps: false,
 })
 
-Produto.sync();
+//Produto.sync();
 
 module.exports = Produto;
