@@ -1,6 +1,9 @@
 {
   "name": "projeto-os-bsi",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.13.1"
+  },
   "description": "Projeto com Node.js e MongoDB",
   "main": "app.js",
   "scripts": {
