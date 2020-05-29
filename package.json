@@ -7,8 +7,7 @@
   "description": "Projeto com Node.js e MongoDB",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon",
-    "start": "node app.js"
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
