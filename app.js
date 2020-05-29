@@ -62,7 +62,7 @@ var funcRoute = require('./routes/funcionario-routes');
 
 //Vincular a aplicacao (app) com o motor de rotas
 app.use('/produto', produtoRoute);
-app.use('/usuario', usuarioRoute);
+app.use('/', usuarioRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/cliente', clienteRoute);
 app.use('/os', osRoute);
