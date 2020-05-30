@@ -25,4 +25,9 @@ const Usuario = sequelize.define('usuario', {
 
   //Usuario.sync();
 
-  module.exports = Usuario;
+Usuario.ValidPassword = function (senha){
+  return bcrypt.compareSync(senha, this.senha);
+};
+
+module.exports = Usuario;
+

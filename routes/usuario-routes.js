@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const usuarioController = require('../controllers/usuario-controller');
+const sequelize = require('../app')
+const Usuario = require('../models/usuario')
+const bcrypt = require('bcryptjs');
 
 
 router.get('/cadastrar', (req,res) => {
@@ -9,11 +12,6 @@ router.get('/cadastrar', (req,res) => {
 
 router.post('/cadastrar/novo', usuarioController.post)
 
-router.get('/', (req, res) => {
-    res.render('usuario/login')
-})
-
-router.post('/login', usuarioController.login)
-
+router.post('/login', usuarioController.authenticate) 
 
 module.exports = router;

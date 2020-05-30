@@ -1,5 +1,6 @@
 const OS = require('../models/ordem-servico');
 const repository = require("../repositories/os-repository");
+const token = require('../controllers/usuario-controller')
 
 exports.post = async(req, res) => {
     var erros = [];

@@ -3,7 +3,8 @@ const router = express.Router();
 const osController = require('../controllers/os-controller');
 const OS = require('../models/ordem-servico')
 const Cliente = require('../models/cliente')
-const sequelize = require('../utils/modelLoader');
+//const sequelize = require('../utils/modelLoader');
+const sequelize = require('../app');
 
 router.get('/', (req, res) => {
     res.render('ordem-servico/cadastro-os')

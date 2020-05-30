@@ -1,10 +1,62 @@
 const Usuario = require('../models/usuario');
-const bcrypt = require('bcryptjs');
 const repository = require('../repositories/usuario-repository');
-//const sequelize = require('../utils/modelLoader');
-//const sequelize = require('../app')
+const cookieParser = require('cookie-parser');
+const md5 = require('md5');
+//const authService = require('../services/auth-service');
+const jwt = require('jsonwebtoken');
+require("dotenv-safe").config();
 
-exports.post = function (req,res) {
+exports.post = async(req, res, next) => {
+    try {
+        await repository.create({
+            nome: req.body.nome,
+            email: req.body.email,
+            senha: md5(req.body.senha + global.SALT_KEY),
+        });
+        res.status(201).send({
+            message: 'Cliente cadastrado com sucesso!'
+        });
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição',
+            erro: e
+        });
+    }
+};
+
+exports.authenticate = async(req, res, next) => {
+    try {
+        const user = await repository.authenticate({
+            email: req.body.email,
+            senha: md5(req.body.senha + global.SALT_KEY)
+        });
+
+        if (!user) {
+            res.status(404).send({
+                message: 'Usuário ou senha inválidos'
+            });
+            return;
+        }
+        const id = user.id;
+        exports.token = jwt.sign({id}, process.env.SECRET, {expiresIn: 1800}); //5 min
+        res.render('dashboard',{ token: token })
+        /*res.status(201).send({
+            token: token,
+            data: {
+                id: user.id,
+                email: user.email,
+                nome: user.nome
+            }
+        });*/
+    } catch (e) {
+        /*res.status(500).send({
+            message: 'Falha ao processar sua requisição',
+            erro: e
+        });*/
+    }
+}
+
+/*exports.post = function (req,res) {
     var erros = [];
     Usuario.findOne({
         where: {
@@ -27,10 +79,11 @@ exports.post = function (req,res) {
                     if (erro){
                         console.log('erro' +erro)
                         res.redirect('/usuario/cadastrar')
+                     
                     }
                     u.senha = hash;
                     u.save().then(() => {
-                        res.redirect('/dashboard');        
+                        res.redirect('/dashboard');   
                     }).catch((err) => {
                         console.log('erro ao salvar' +err)
                     })
@@ -38,24 +91,7 @@ exports.post = function (req,res) {
             })
         }
     })
-};
+}; */
 
-exports.login = async (req, res) => {
-    try {
-      const data = await repository.login(req.body);
-  
-      if (data) {
-        return res
-          .status(201)
-          .json({
-            message: "Login realizado com sucesso!",
-            user: data.usuario,
-            token: data.token,
-          });
-      }
-  
-      return res.status(401).json({ message: "Email e/ou senha inválidos!" });
-    } catch (error) {
-      res.status(500).json({ message: "Erro ao realizar login!", error });
-    }
-  };
+
+
