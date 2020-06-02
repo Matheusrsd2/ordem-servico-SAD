@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-//const sequelize = require('../utils/modelLoader');
-const sequelize = require('../app');
+const sequelize = require('../utils/modelLoader');
+//const sequelize = require('../app');
 
 const Cliente = sequelize.define('cliente', {
     nome: {

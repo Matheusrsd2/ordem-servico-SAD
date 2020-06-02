@@ -9,7 +9,7 @@ const session = require('express-session');
 const Sequelize = require('sequelize');
 const autorization = require('./services/auth-service');
 
-const sequelize = new Sequelize('ordem_servico', 'root', '', {
+/*const sequelize = new Sequelize('ordem_servico', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
 });
@@ -20,7 +20,7 @@ sequelize.authenticate().then(function(){
     console.log('erro'+err)
 });
 
-module.exports = sequelize; 
+module.exports = sequelize; */
 
 //cookie
 app.use(cookieParser())
@@ -69,7 +69,7 @@ const indexRoute = require("./routes/index-routes");
 //Vincular a aplicacao (app) com o motor de rotas
 app.use('/produto', produtoRoute);
 app.use('/usuario', usuarioRoute);
-app.use('/dashboard', autorization.authorize, dashboardRoute);
+app.use('/dashboard', dashboardRoute);
 app.use('/cliente', clienteRoute);
 app.use('/os', osRoute);
 //app.use('/buscar', buscaRoute);

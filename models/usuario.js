@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-//const sequelize = require('../utils/modelLoader');
-const sequelize = require('../app');
+const sequelize = require('../utils/modelLoader');
+//const sequelize = require('../app');
 
 const Usuario = sequelize.define('usuario', {
     nome: {
@@ -23,7 +23,7 @@ const Usuario = sequelize.define('usuario', {
     timestamps: false,
 })
 
-  //Usuario.sync();
+//Usuario.sync();
 
 Usuario.ValidPassword = function (senha){
   return bcrypt.compareSync(senha, this.senha);

@@ -13,7 +13,7 @@
         div#status{
             position: absolute;
             top:110px;
-            left:520px;
+            left:411px;
         }
         div#prod{
             position: absolute;
@@ -22,8 +22,13 @@
         }
         div#despesa{
             position: absolute;
-            top:340px;
-            left:520px;
+            top:110px;
+            left:646px;
+        }
+        div#func{
+            position: absolute;
+            top: 340px;
+            left: 520px;
         }
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,7 +38,7 @@
     {{>_fonts}}
     {{>_navbar}}
     <center><h1 style="color:#708090">Dashboard</h1></center>
-    <div class="card" id="total_os" style="width: 35rem; height:8rem">
+    <div class="card" id="total_os" style="width: 27rem; height:8rem">
         <div class="card-body">
             <form action="/os/gerencial">
                 <p style="font-size: 17px;">Total acumulado de Ordens de serviço: 
@@ -43,7 +48,7 @@
             </form>
         </div>
     </div>
-    <div class="card" id="clients" style="width: 35rem; height:8rem">
+    <div class="card" id="clients" style="width: 27rem; height:8rem">
         <div class="card-body">
              <form action="/os/gerencial">
                 <p style="font-size: 20px;">Total de Clientes: 
@@ -53,7 +58,7 @@
             </form>
         </div>
     </div>
-    <div class="card" id="status" style="width: 15rem; height:15rem">
+    <div class="card" id="status" style="width: 16rem; height:15rem">
         <div class="card-body">
              <form action="/os/gerencial">
                 <p>Ordens de Serviço ainda em andamento</p>
@@ -81,7 +86,7 @@
             </p>
         </div>
     </div>
-        <div class="card" id="despesa" style="width: 35rem; height:20rem">
+    <div class="card" id="despesa" style="width: 26rem; height:15rem">
         <div class="card-body">
              <form action="/os/gerencial">
                 <center><p><b>Valor Agregado de Despesas</b></p></center>
@@ -100,6 +105,20 @@
                 <li><h6>Saldo Final: R$ {{dataValues.saldo}}</h6></li>
             </ul>
             {{/resumoDespesa}}
+        </div>
+    </div>
+        <div class="card" id="func" style="width: 35rem; height:20rem">
+        <div class="card-body">
+             <form action="/os/gerencial">
+                <center><p><b>Funcionarios que mais executaram Ordens de Serviço</b></p></center>
+            </form>
+            <p class="card-text" style="font-size: 50px">
+                <ul>
+                {{#each func}}
+                    <li><h6>Funcionario: {{funcionario}} | Frequencia: {{count}} vez(es)</h6></li>
+                {{/each}}
+                </ul>
+            </p>
         </div>
     </div>
 </body>

@@ -1,6 +1,6 @@
 const OS = require('../models/ordem-servico');
 const repository = require("../repositories/os-repository");
-const token = require('../controllers/usuario-controller')
+
 
 exports.post = async(req, res) => {
     var erros = [];
@@ -17,6 +17,7 @@ exports.post = async(req, res) => {
         await repository.post({
             cliente: req.body.cliente,
             produto: req.body.produto,
+            funcionario: req.body.funcionario,
             obs: req.body.obs,
             valor_despesa_max: req.body.despesaMax
         });

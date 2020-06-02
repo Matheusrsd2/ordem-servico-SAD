@@ -6,22 +6,34 @@ const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 require("dotenv-safe").config();
 
-exports.post = async(req, res, next) => {
-    try {
-        await repository.create({
-            nome: req.body.nome,
-            email: req.body.email,
-            senha: md5(req.body.senha + global.SALT_KEY),
-        });
-        res.status(201).send({
-            message: 'Cliente cadastrado com sucesso!'
-        });
-    } catch (e) {
-        res.status(500).send({
-            message: 'Falha ao processar sua requisição',
-            erro: e
-        });
-    }
+exports.post = (req, res, next) => {
+    var erros = [];
+    Usuario.findOne({
+        where: {
+            email: req.body.email}
+        }).then((usuario) =>{
+        if (usuario){
+            erros.push({texto: "Email ja cadastrado, tente novamente com outro email"})
+        }
+        if (erros.length > 0){
+            res.render('usuario/cadastrar-usuario', {erros: erros})
+        }
+        else{
+            try {
+                var user = new Usuario();
+                user.nome = req.body.nome,
+                user.email = req.body.email,
+                user.senha = md5(req.body.senha + global.SALT_KEY)
+                user.save();
+                res.redirect('/')
+            } catch (e) {
+                res.status(500).send({
+                    message: 'Falha ao processar sua requisição',
+                    erro: e
+                });
+            }
+        }
+    })
 };
 
 exports.authenticate = async(req, res, next) => {
@@ -38,8 +50,8 @@ exports.authenticate = async(req, res, next) => {
             return;
         }
         const id = user.id;
-        exports.token = jwt.sign({id}, process.env.SECRET, {expiresIn: 1800}); //5 min
-        res.render('dashboard',{ token: token })
+        var token = jwt.sign({id}, process.env.SECRET, {expiresIn: 1800}); //5 min
+        res.redirect('/dashboard')
         /*res.status(201).send({
             token: token,
             data: {
@@ -49,10 +61,10 @@ exports.authenticate = async(req, res, next) => {
             }
         });*/
     } catch (e) {
-        /*res.status(500).send({
+        res.status(500).send({
             message: 'Falha ao processar sua requisição',
             erro: e
-        });*/
+        });
     }
 }
 

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-//const sequelize = require('../utils/modelLoader');
-const sequelize = require('../app');
+const sequelize = require('../utils/modelLoader');
+//const sequelize = require('../app');
 
 const OS = sequelize.define('ordem_servico', {
   // Model attributes are defined here
@@ -8,7 +8,7 @@ const OS = sequelize.define('ordem_servico', {
     type: Sequelize.STRING,
     allowNull: true
   },
-  tecnico: {
+  funcionario: {
     type: Sequelize.STRING
   },
   produto:{

@@ -8,9 +8,7 @@ exports.post  = async(req, res) => {
             fabricante: req.body.fabricante,
             modelo: req.body.modelo,
         });
-        res.satus(201).end({
-            message:"produto cadastrado com sucesso"
-        })
+        res.redirect('/produto/listar')
     }catch (error)
     {
         res.status(500).send({

@@ -21,7 +21,25 @@
                 </div>
                 <div class="col-sm-8">
                     <label>Produto</label>
-                    <input type="text" class="form-control" name="produto">
+                    <select class="form-control" name="produto">
+                        <option> </option> 
+                        {{#each prod}}
+                        {{#dataValues}}
+                        <option value="{{nome}}">{{nome}}</option>
+                        {{/dataValues}}
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-sm-8">
+                    <label>Funcionário</label>
+                    <select class="form-control" name="funcionario">
+                        <option> </option>
+                        {{#each func}}
+                        {{#dataValues}}
+                        <option value="{{nome}}">{{nome}}</option>
+                        {{/dataValues}}
+                        {{/each}}
+                    </select>
                 </div>
                 <div class="col-sm-8">
                     <label>Observação</label>

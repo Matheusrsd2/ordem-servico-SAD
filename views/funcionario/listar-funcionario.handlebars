@@ -2,39 +2,30 @@
     {{>_fonts}}
     {{>_navbar}}
     <br><br>
-    <div id="busca">
-            <form action="" method="post">
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="busca" placeholder="Pesquisar Funcionario">
-                </div>
-                <button name="find" type="submit" class="btn btn-success">Buscar
-                    <span class="glyphicon glyphicon-search">
-                </button>
-            </form>
-    </div><br>
-        <pre><b>Funcionarios = </b></pre>
+    <div class="card col-sm-11 p-3 mb-2 bg-light text-dark">
         <table id="t1"class="table table-dark table-hover">
-        <thead> 
-            <tr>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>CPF</th>
-                <th>Data de Nascimento</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each func}}
-            {{#dataValues}}
-            <tr>
-                <td>{{nome}}</td>
-                <td>{{endereco}}</td>
-                <td>{{cpf}}</td>
-                <td>{{#formatDate dataNasc}}{{/formatDate}}</td>
-                <td>{{status}}</td>
-            {{/dataValues}}
-            {{/each}}
-            </tr>    
-        </tbody>
-    </table>
+            <thead> 
+                <tr>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each func}}
+                {{#dataValues}}
+                <tr>
+                    <td>{{nome}}</td>
+                    <td>{{endereco}}</td>
+                    <td>{{cpf}}</td>
+                    <td>{{#formatDate dataNasc}}{{/formatDate}}</td>
+                    <td>{{status}}</td>
+                {{/dataValues}}
+                {{/each}}
+                </tr>    
+            </tbody>
+        </table>
+    </div>
 </body>

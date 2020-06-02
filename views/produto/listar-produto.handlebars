@@ -25,6 +25,7 @@
             </thead>
             <tbody> 
                 {{#each produto}}
+                {{#dataValues}}
                 <tr>
                     <td>{{nome}}</td>
                     <td>{{fabricante}}</td>
@@ -37,7 +38,8 @@
                             <a href="edit_produto.php?id=<?php echo $dados['id'];?>" style="text-decoration:none"><button class="btn btn-info"><font color="white">Alterar</font>
                             </a></button>
                         </td>
-                    {{/each}}
+                {{/dataValues}}
+                {{/each}}
                 </tr>
             </tbody>
         </table>

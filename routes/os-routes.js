@@ -3,11 +3,17 @@ const router = express.Router();
 const osController = require('../controllers/os-controller');
 const OS = require('../models/ordem-servico')
 const Cliente = require('../models/cliente')
-//const sequelize = require('../utils/modelLoader');
-const sequelize = require('../app');
+const sequelize = require('../utils/modelLoader');
+const Funcionario = require('../models/funcionario')
+const Produto = require('../models/produto')
+//const sequelize = require('../app');
 
 router.get('/', (req, res) => {
-    res.render('ordem-servico/cadastro-os')
+    Funcionario.findAll().then(function(func){
+        Produto.findAll().then(function(prod){
+            res.render('ordem-servico/cadastro-os', {func: func, prod: prod})
+        })
+    })
 })
 
 router.post('/cadastrar', osController.post);
@@ -24,10 +30,11 @@ router.get('/detalhes/:id', (req,res) => {
     })
     .then(function (os){
         res.//send({
-            //ordemservico: os
-            render('ordem-servico/detalhes', {os:os})
-        })
+        //ordemservico: os
+        render('ordem-servico/detalhes', {os:os})
     })
+})
+
 router.get('/dashboard', (req,res) => {
     OS.count().then(function(osCount){
         Cliente.count().then(function(cliCount){
@@ -52,13 +59,23 @@ router.get('/dashboard', (req,res) => {
                             mapToModel: false // pass true here if you have any mapped fields
                         })
                         .then(function(resumoDespesa){
-                        res.render('ordem-servico/gerencial',
-                            {osCount:osCount,
-                            cliCount: cliCount,
-                            osStatus: osStatus,  
-                            prod: prod,
-                            despesa: despesa,
-                            resumoDespesa: resumoDespesa  
+                            OS.count({
+                            group: ['funcionario'],
+                            limit: 1
+                        })
+                            .then(function(func){
+                                /*res.send({
+                                    func: func 
+                                })*/
+                                res.render('ordem-servico/gerencial',
+                                {osCount:osCount,
+                                cliCount: cliCount,
+                                osStatus: osStatus,  
+                                prod: prod,
+                                despesa: despesa,
+                                resumoDespesa: resumoDespesa,
+                                func: func 
+                                })
                             })
                         })    
                     })
