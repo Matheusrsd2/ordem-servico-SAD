@@ -50,7 +50,7 @@ exports.authenticate = async(req, res, next) => {
             return;
         }
         const id = user.id;
-        var token = jwt.sign({id}, process.env.SECRET, {expiresIn: 1800}); //5 min
+        var token = jwt.sign({id}, process.env.SECRET, {expiresIn: '1d'}); //5 min
         res.redirect('/dashboard')
         /*res.status(201).send({
             token: token,
