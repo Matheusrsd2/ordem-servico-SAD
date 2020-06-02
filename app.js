@@ -83,7 +83,7 @@ app.get('/logout', function(req, res){
  });
 
 //Definindo a porta via arquivo de configuração
-var port = process.env.port || 3000;
+var port = process.env.port;
 
 app.listen(port, () => {
     console.log('Server up and running!');
