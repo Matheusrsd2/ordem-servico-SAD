@@ -55,13 +55,12 @@ app.set('view engine', 'handlebars');
 
 
 //ROTAS
-//var produtoRoute = require("./src/routes/produto-routes");
 var usuarioRoute = require("./routes/usuario-routes"); 
 var clienteRoute = require("./routes/cliente-routes");
 var dashboardRoute = require('./routes/dashboard-route');
 var osRoute = require('./routes/os-routes');
 var produtoRoute = require('./routes/produto-route');
-//var buscaRoute = require('./routes/busca-route');
+var buscaRoute = require('./routes/busca-route');
 var funcRoute = require('./routes/funcionario-routes');
 const indexRoute = require("./routes/index-routes");
 
@@ -72,7 +71,7 @@ app.use('/usuario', usuarioRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/cliente', clienteRoute);
 app.use('/os', osRoute);
-//app.use('/buscar', buscaRoute);
+app.use('/buscar', buscaRoute);
 app.use('/funcionario', funcRoute);
 app.use('/', indexRoute);
 
@@ -83,9 +82,19 @@ app.get('/logout', function(req, res){
  });
 
 //Definindo a porta via arquivo de configuração
-var port = process.env.port;
+/*var port = process.env.port || 3000;
 
 app.listen(port, () => {
     console.log('Server up and running!');
 
+});*/
+
+app.set('port', (process.env.PORT || 5000));
+
+//For avoidong Heroku $PORT error
+app.get('/', function(request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
 });

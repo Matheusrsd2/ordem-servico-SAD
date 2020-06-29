@@ -6,27 +6,36 @@
 <body>
 {{>_fonts}}
 {{>_navbar}}
-<br><div class="alert alert-info col-sm-12"><b>Resultado: {{result}} Registros</b></div>
-<table class="table table-dark table-hover">
-    <thead> 
-        <tr>
-            <th style="font-family: 'Arsenal'">Cliente</th>
-            <th style="font-family: 'Arsenal'">Produto</th>
-            <th style="font-family: 'Arsenal'">Data de Cadastro</th>
-            <th style="font-family: 'Arsenal'">Observação</th>
-            <th style="font-family: 'Arsenal'">Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each os}}
-        <tr>
-            <td>{{cliente}}</td>
-            <td>{{produto}}</td>
-            <td>{{horaCadastro}}</td>
-            <td>{{obs}}</td>
-            <td>{{status}}</td> 
-        {{/each}}
-        </tr>            
-    </tbody>
-</table>
+{{#each os}}
+{{#dataValues}}
+<center><div class="card col-sm-11 p-3 mb-2 bg-light text-dark">
+    <div class="alert alert-info col-sm-12"><b>Resultado: {{result}} Registros</b></div>
+    <table class="table table-dark table-hover">
+        <thead> 
+            <tr>
+                <th style="font-family: 'Arsenal'">Cliente</th>
+                <th style="font-family: 'Arsenal'">Produto</th>
+                <th style="font-family: 'Arsenal'">Funcionario</th>
+                <th style="font-family: 'Arsenal'">Data de Cadastro</th>
+                <th style="font-family: 'Arsenal'">Observação</th>
+                <th style="font-family: 'Arsenal'">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            
+            <tr>
+                <td>{{cliente}}</td>
+                <td>{{produto}}</td>
+                <td>{{funcionario}}</td>
+                <td>{{created_at}}</td>
+                <td>{{obs}}</td>
+                <td>{{status}}</td> 
+            {{/dataValues}}
+            {{/each}}
+            </tr>            
+        </tbody>
+    </table>
+</div>
+</center>
 </body>
